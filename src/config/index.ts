@@ -11,11 +11,11 @@ export const DEFAULT_PUBLIC_PAGE = '/entrar';
 
 export const DEFAULT_PRIVATE_PAGE = '/';
 
-export const ACCESS_TOKEN_ID = '_react-leap_access';
-export const REFRESH_TOKEN_ID = '_react-leap_refresh';
-export const USER_INFO_ID = '_react-leap_user-info';
+export const ACCESS_TOKEN_ID = '_access';
+export const REFRESH_TOKEN_ID = '_refresh';
+export const USER_INFO_ID = '_user-info';
 
-export const MSW_DB = '_react-leap_msw-db';
+export const MSW_DB = '_msw-db';
 
 export const JWT_ACCESS_SECRET = '123456' as string;
 export const JWT_ACCESS_EXPIRES_IN = 10;

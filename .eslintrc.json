@@ -14,13 +14,20 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["unused-imports"],
+  "plugins": [
+    "unused-imports"
+  ],
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
       "parser": "@typescript-eslint/parser",
       "settings": {
-        "react": { "version": "detect" },
+        "react": {
+          "version": "detect"
+        },
         "import/resolver": {
           "typescript": {}
         }
@@ -39,36 +46,46 @@
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:prettier/recommended",
-        "plugin:testing-library/react",
-        "plugin:jest-dom/recommended"
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "no-restricted-imports": [
           "error",
           {
-            "patterns": ["@/modules/*/*"]
+            "patterns": [
+              "@/modules/*/*"
+            ]
           }
         ],
-        "linebreak-style": ["error", "unix"],
+        "linebreak-style": "off",
         "react/prop-types": "off",
-
         "no-debugger": "off",
-
         "import/order": [
           "error",
           {
-            "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object"
+            ],
             "newlines-between": "always",
-            "alphabetize": { "order": "asc", "caseInsensitive": true }
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
           }
         ],
         "import/default": "off",
         "import/prefer-default-export": "off",
         "import/no-named-as-default-member": "off",
         "import/no-named-as-default": "off",
-
-        "@typescript-eslint/no-unused-vars": ["off"],
+        "@typescript-eslint/no-unused-vars": [
+          "off"
+        ],
         "no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
@@ -80,18 +97,28 @@
             "argsIgnorePattern": "^_"
           }
         ],
-
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "error",
-
         "jsx-a11y/anchor-is-valid": "off",
-
-        "@typescript-eslint/explicit-function-return-type": ["off"],
-        "@typescript-eslint/explicit-module-boundary-types": ["off"],
-        "@typescript-eslint/no-empty-function": ["off"],
-        "@typescript-eslint/no-explicit-any": ["off"],
-
-        "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+        "@typescript-eslint/explicit-function-return-type": [
+          "off"
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "off"
+        ],
+        "@typescript-eslint/no-empty-function": [
+          "off"
+        ],
+        "@typescript-eslint/no-explicit-any": [
+          "off"
+        ],
+        "prettier/prettier": [
+          "error",
+          {},
+          {
+            "usePrettierrc": true
+          }
+        ]
       }
     }
   ]
