@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { Login } from '@/Pages/Login';
 // import { AuthRoutes } from '@/modules/auth';
@@ -9,6 +9,7 @@ export default function PublicRoutes() {
     <Routes>
       {/* <Route path="/*" element={<AuthRoutes />} /> */}
       <Route index element={<Login />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
