@@ -1,13 +1,13 @@
-import { ChakraProvider, Flex } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript, Flex } from '@chakra-ui/react';
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import DotLoader from 'react-spinners/DotLoader';
 
 import { AuthProvider } from '../global-provider/Global';
 
-import { theme } from '@/styles';
-import { IChildrenReact } from '@/types/types';
 import '@fontsource/source-sans-pro';
+import { theme } from '@/styles';
+import { IChildrenReact } from '@/types/IChildrenReact';
 
 export const AppProvider = ({ children }: IChildrenReact) => {
   return (
@@ -20,6 +20,7 @@ export const AppProvider = ({ children }: IChildrenReact) => {
     >
       <ChakraProvider theme={theme}>
         <AuthProvider>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <BrowserRouter>{children}</BrowserRouter>
         </AuthProvider>
       </ChakraProvider>

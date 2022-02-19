@@ -1,10 +1,13 @@
 import { mode, GlobalStyleProps } from '@chakra-ui/theme-tools';
-
+import '@fontsource/source-sans-pro';
 export const styles = {
   global: (props: GlobalStyleProps) => ({
+    html: {
+      minH: '100%',
+    },
     body: {
-      fontFamily: 'body',
-      color: mode('gray.800', 'whiteAlpha.900')(props),
+      fontFamily: 'Source Sans Pro',
+      color: mode('gray.800', 'white')(props),
       bg: mode('white', 'gray.800')(props),
       lineHeight: 'base',
     },
@@ -15,9 +18,10 @@ export const styles = {
       borderColor: mode('gray.200', 'whiteAlpha.300')(props),
       wordWrap: 'break-word',
     },
+
     fonts: {
-      heading: 'Open Sans',
-      body: 'Open Sans',
+      heading: 'Source Sans Pro',
+      body: 'Source Sans Pro',
     },
   }),
 };

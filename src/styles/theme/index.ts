@@ -8,9 +8,13 @@ export default extendTheme({
     green: '#558B2F',
     gray: {
       100: '#C7CCD8',
-      200: '#4D4F5C',
-      300: '#595F6E',
+      200: '#595F6E',
+      300: '#4D4F5C',
     },
     white: '#FFFFFF',
+  },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
   },
 });

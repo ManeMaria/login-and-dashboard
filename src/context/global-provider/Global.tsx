@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext } from 'react';
 
-import { IChildrenReact } from '@/types/types';
+import { IChildrenReact } from '@/types/IChildrenReact';
 
 export const GlobalContext = createContext({});
 
