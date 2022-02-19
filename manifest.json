@@ -1,0 +1,15 @@
+{
+  "short_name": "Dashboad",
+  "name": "Loomi Dashboard",
+  "icons": [
+    {
+      "src": "favicons/favicon.png",
+      "sizes": "193x193",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#75981E",
+  "background_color": "#FEFFFC"
+}
