@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-leap"]=this["webpackJsonpreact-leap"]||[]).push([[3],{186:function(t,e,c){"use strict";c.r(e),c.d(e,"default",(function(){return a}));c(0);var n=c(8),r=c(58),s=c(4);function a(){return Object(r.b)().user?Object(s.jsx)(n.b,{}):Object(s.jsx)(n.a,{to:"/"})}}}]);
+//# sourceMappingURL=3.b8b6ad81.chunk.js.map
