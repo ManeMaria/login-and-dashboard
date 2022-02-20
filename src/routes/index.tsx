@@ -1,11 +1,20 @@
 import { lazy } from 'react';
+import { Navigate, Route, Routes } from 'react-router';
 
-import { useAuth } from '@/lib/authentication';
+import { Login } from '@/pages';
 
-const ProtectedRoutes = lazy(() => import('./ProtectedRoutes'));
-const PublicRoutes = lazy(() => import('./PublicRoutes'));
-
+const AuthRoute = lazy(() => import('@/components/AuthRoute/AuthRoute'));
+const DashBoard = () => <h1>DashBoard</h1>;
 export const AppRoutes = () => {
-  const auth = useAuth();
-  return auth ? <ProtectedRoutes /> : <PublicRoutes />;
+  return (
+    <Routes>
+      {/* <Route path="/*" element={<AuthRoutes />} /> */}
+      <Route path="/" element={<Login />} />
+
+      <Route element={<AuthRoute />}>
+        <Route path="/dashboard" element={<DashBoard />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
 };
