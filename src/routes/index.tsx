@@ -8,11 +8,10 @@ const DashBoard = () => <h1>DashBoard</h1>;
 export const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route path="/*" element={<AuthRoutes />} /> */}
       <Route path="/" element={<Login />} />
-
       <Route element={<AuthRoute />}>
         <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
