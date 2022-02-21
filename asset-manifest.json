@@ -1,28 +1,33 @@
 {
   "files": {
     "main.css": "/login-and-dashboard/static/css/main.d60dd01b.chunk.css",
-    "main.js": "/login-and-dashboard/static/js/main.b2257271.chunk.js",
-    "main.js.map": "/login-and-dashboard/static/js/main.b2257271.chunk.js.map",
-    "runtime-main.js": "/login-and-dashboard/static/js/runtime-main.afb76712.js",
-    "runtime-main.js.map": "/login-and-dashboard/static/js/runtime-main.afb76712.js.map",
-    "static/css/2.6c26bc58.chunk.css": "/login-and-dashboard/static/css/2.6c26bc58.chunk.css",
-    "static/js/2.cd1322da.chunk.js": "/login-and-dashboard/static/js/2.cd1322da.chunk.js",
-    "static/js/2.cd1322da.chunk.js.map": "/login-and-dashboard/static/js/2.cd1322da.chunk.js.map",
-    "static/js/3.b8b6ad81.chunk.js": "/login-and-dashboard/static/js/3.b8b6ad81.chunk.js",
-    "static/js/3.b8b6ad81.chunk.js.map": "/login-and-dashboard/static/js/3.b8b6ad81.chunk.js.map",
+    "main.js": "/login-and-dashboard/static/js/main.eaa5924f.chunk.js",
+    "main.js.map": "/login-and-dashboard/static/js/main.eaa5924f.chunk.js.map",
+    "runtime-main.js": "/login-and-dashboard/static/js/runtime-main.e0e859b8.js",
+    "runtime-main.js.map": "/login-and-dashboard/static/js/runtime-main.e0e859b8.js.map",
+    "static/css/2.cb6935a1.chunk.css": "/login-and-dashboard/static/css/2.cb6935a1.chunk.css",
+    "static/js/2.4e9443e2.chunk.js": "/login-and-dashboard/static/js/2.4e9443e2.chunk.js",
+    "static/js/2.4e9443e2.chunk.js.map": "/login-and-dashboard/static/js/2.4e9443e2.chunk.js.map",
     "index.html": "/login-and-dashboard/index.html",
-    "static/css/2.6c26bc58.chunk.css.map": "/login-and-dashboard/static/css/2.6c26bc58.chunk.css.map",
+    "static/css/2.cb6935a1.chunk.css.map": "/login-and-dashboard/static/css/2.cb6935a1.chunk.css.map",
     "static/css/main.d60dd01b.chunk.css.map": "/login-and-dashboard/static/css/main.d60dd01b.chunk.css.map",
-    "static/js/2.cd1322da.chunk.js.LICENSE.txt": "/login-and-dashboard/static/js/2.cd1322da.chunk.js.LICENSE.txt",
+    "static/js/2.4e9443e2.chunk.js.LICENSE.txt": "/login-and-dashboard/static/js/2.4e9443e2.chunk.js.LICENSE.txt",
     "static/media/element-bottom-right.28e2aaac.svg": "/login-and-dashboard/static/media/element-bottom-right.28e2aaac.svg",
     "static/media/element-top-left.0022f093.svg": "/login-and-dashboard/static/media/element-top-left.0022f093.svg",
-    "static/media/index.css": "/login-and-dashboard/static/media/source-sans-pro-vietnamese-400-normal.e84a4369.woff2"
+    "static/media/elemente-menu-nav-bottom.0d3655b3.svg": "/login-and-dashboard/static/media/elemente-menu-nav-bottom.0d3655b3.svg",
+    "static/media/elemente-menu-nav-top.7b6af676.svg": "/login-and-dashboard/static/media/elemente-menu-nav-top.7b6af676.svg",
+    "static/media/icon-dashboard.791692b6.svg": "/login-and-dashboard/static/media/icon-dashboard.791692b6.svg",
+    "static/media/icon-exit.29f2c14f.svg": "/login-and-dashboard/static/media/icon-exit.29f2c14f.svg",
+    "static/media/300.css": "/login-and-dashboard/static/media/source-sans-pro-vietnamese-300-normal.02684781.woff2",
+    "static/media/index.css": "/login-and-dashboard/static/media/source-sans-pro-vietnamese-400-normal.e84a4369.woff2",
+    "static/media/600.css": "/login-and-dashboard/static/media/source-sans-pro-vietnamese-600-normal.2a10e808.woff2",
+    "static/media/900.css": "/login-and-dashboard/static/media/source-sans-pro-vietnamese-900-normal.d8c131e8.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.afb76712.js",
-    "static/css/2.6c26bc58.chunk.css",
-    "static/js/2.cd1322da.chunk.js",
+    "static/js/runtime-main.e0e859b8.js",
+    "static/css/2.cb6935a1.chunk.css",
+    "static/js/2.4e9443e2.chunk.js",
     "static/css/main.d60dd01b.chunk.css",
-    "static/js/main.b2257271.chunk.js"
+    "static/js/main.eaa5924f.chunk.js"
   ]
 }
