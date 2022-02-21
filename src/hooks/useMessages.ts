@@ -1,7 +1,7 @@
 import { useToast } from '@chakra-ui/react';
 
 interface ISetObjectOptions {
-  title: string;
+  title?: string;
   description: string;
   status: 'info' | 'warning' | 'success' | 'error' | undefined;
 }

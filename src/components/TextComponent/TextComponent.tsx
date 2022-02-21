@@ -1,8 +1,6 @@
-import { Text, useColorModeValue } from '@chakra-ui/react';
+import { Text, TextProps, useColorModeValue } from '@chakra-ui/react';
 
-import { IChildrenReact } from '@/types/IChildrenReact';
-
-interface ITextComponent extends IChildrenReact {
+interface ITextComponent extends TextProps {
   colorDefalt?: string;
   colorDark?: string;
 }
@@ -10,11 +8,12 @@ export function TextComponent({
   colorDefalt = 'gray.200',
   colorDark = 'white',
   children,
+  ...restProps
 }: ITextComponent) {
   const color = useColorModeValue(colorDefalt, colorDark);
 
   return (
-    <Text fontSize="md" color={color}>
+    <Text {...restProps} fontSize="md" color={color}>
       {children}
     </Text>
   );

@@ -12,6 +12,7 @@ export const AuthContext = createContext<AuthContextType>(null!);
 
 export function AuthProvider({ children }: IChildrenReact) {
   const [user, setUser] = useState<any | null>(null);
+  console.log('user', user);
   const signin = (newUser: string, callback: VoidFunction) => {
     setUser(newUser);
     callback();

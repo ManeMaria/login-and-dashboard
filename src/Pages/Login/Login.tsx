@@ -1,6 +1,6 @@
-import { Flex, Image, Box } from '@chakra-ui/react';
-import { useState } from 'react';
-import '@fontsource/source-sans-pro';
+/* eslint-disable prefer-const */
+import { Flex, Image, Box, Fade } from '@chakra-ui/react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import elementBottomRight from '@/assets/images/element-bottom-right.svg';
@@ -18,33 +18,45 @@ export const Login = () => {
   const navigate = useNavigate();
   const { setOptions } = useMessages();
   const [isLoading, setIsLoading] = useState(false);
+  const isMountedRef = useRef(false);
+
+  //evita erro de vazamento de memória do react
+  useEffect((): any => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   const getUser = async (user: string, password: string): Promise<any> => {
+    isMountedRef.current = true;
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const res = (Math.random() * (2 - 1) + 1).toFixed();
-
-        res === '1' ? resolve('test-token') : reject(new Error('Falhou a consulta'));
-      }, 3000);
+        resolve('test-token');
+      }, 1000);
     });
   };
 
-  const validateInputs = (...fildes: HTMLInputElement[]): boolean => {
-    for (const field of fildes) {
-      if (!field.value.trim()) {
+  const validateInputs = (...fields: HTMLInputElement[]): boolean | undefined => {
+    for (const input of fields) {
+      if (!input.value.trim()) {
         return false;
       }
-    }
 
-    return true;
+      return true;
+    }
   };
-  // const navigate = useNavigate();
+
   const handleSubmit = async (event: HTMLElementEvent<HTMLFormElement>): Promise<void> => {
+    if (!isMountedRef.current) {
+      return;
+    }
     event.preventDefault();
     setIsLoading(true);
     try {
       const { target } = event;
-      const [user, password, remindMe] = [target.user, target.password, target.remindMe];
+      const [user, password, RememberMe] = [target.user, target.password, target.RememberMe];
       const isValid = validateInputs(user, password);
 
       if (!isValid) {
@@ -63,11 +75,12 @@ export const Login = () => {
         setIsLoading(false);
         const decodeUser = isUser; //recebe a função de decode
 
+        //lembra o login
+        storage.setRememberMe(RememberMe.checked);
+        storage.setUser({ id: decodeUser });
+
         //pegará o token
         cookies.setAccess(isUser);
-        if (remindMe) {
-          storage.setUser(decodeUser);
-        }
         signin(decodeUser, () => navigate('dashboard'));
       }
 
@@ -76,7 +89,6 @@ export const Login = () => {
       if (error instanceof Error) {
         setOptions({
           status: 'warning',
-          title: 'Importante',
           description: error.message,
         });
       }
@@ -88,39 +100,47 @@ export const Login = () => {
   };
 
   return (
-    <Flex w="100vw" h="100vh" className="animate__animated animate__fadeIn animate__delay-0.5s">
-      <Flex
-        flex="1"
-        alignItems="flex-start"
-        justifyContent={'flex-start'}
-        w={'70%'}
-        d={['none', 'flex']}
-      >
-        <Image src={elementTopLeft} alt="elemento topo esquerdo" />
-      </Flex>
-      <Flex justifyContent="center" alignItems="center" flexDirection="column" flex="3" gap="10px">
-        <Box h={['150px', '200px']}>
-          <Image src={logo2} alt="logo marca" w={['130px', '150px']} />
-        </Box>
+    <Fade in={true} delay={0.8}>
+      <Flex w="100vw" h="100vh">
+        <Flex
+          flex="1"
+          alignItems="flex-start"
+          justifyContent={'flex-start'}
+          w={'70%'}
+          d={['none', 'flex']}
+        >
+          <Image src={elementTopLeft} alt="elemento topo esquerdo" />
+        </Flex>
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          flex="3"
+          gap="10px"
+        >
+          <Box h={['150px', '200px']}>
+            <Image src={logo2} alt="logo marca" w={['130px', '150px']} />
+          </Box>
 
-        <Box w="100%">
-          <FormLogin
-            isLoading={isLoading}
-            w={['90%', '100%', '100%', '35%']}
-            margin="auto"
-            onSubmit={handleSubmit}
-          />
-        </Box>
+          <Box w="100%">
+            <FormLogin
+              isLoading={isLoading}
+              w={['90%', '100%', '100%', '35%']}
+              margin="auto"
+              onSubmit={handleSubmit}
+            />
+          </Box>
+        </Flex>
+        <Flex
+          flex="1"
+          alignItems="flex-end"
+          justifyContent={'flex-end'}
+          w={'70%'}
+          d={['none', 'flex']}
+        >
+          <Image src={elementBottomRight} alt="elemento baixo direito" />
+        </Flex>
       </Flex>
-      <Flex
-        flex="1"
-        alignItems="flex-end"
-        justifyContent={'flex-end'}
-        w={'70%'}
-        d={['none', 'flex']}
-      >
-        <Image src={elementBottomRight} alt="elemento baixo direito" />
-      </Flex>
-    </Flex>
+    </Fade>
   );
 };

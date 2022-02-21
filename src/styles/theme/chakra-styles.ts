@@ -1,5 +1,9 @@
 import { mode, GlobalStyleProps } from '@chakra-ui/theme-tools';
-import '@fontsource/source-sans-pro';
+import '@fontsource/source-sans-pro/';
+import '@fontsource/source-sans-pro/900.css';
+import '@fontsource/source-sans-pro/600.css';
+import '@fontsource/source-sans-pro/300.css';
+
 export const styles = {
   global: (props: GlobalStyleProps) => ({
     html: {

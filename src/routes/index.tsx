@@ -1,17 +1,22 @@
-import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
 
-import { Login } from '@/pages';
+import { MainLayout } from '@/components/MainLayout/MainLayout';
+import ProtectRoutes from '@/components/ProtectRoutes/ProtectRoutes';
+import { loadAccess } from '@/lib/authentication';
+import { Dashboard, Login } from '@/pages';
 
-const AuthRoute = lazy(() => import('@/components/AuthRoute/AuthRoute'));
-const DashBoard = () => <h1>DashBoard</h1>;
 export const AppRoutes = () => {
+  const hasAcess = loadAccess();
+  console.log('hasAcess', hasAcess);
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route element={<AuthRoute />}>
-        <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/" element={hasAcess ? <Navigate to="/dashboard" /> : <Login />} />
+      <Route path="/login" element={<Login />} />
+
+      <Route element={<ProtectRoutes />}>
+        <Route element={<MainLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
