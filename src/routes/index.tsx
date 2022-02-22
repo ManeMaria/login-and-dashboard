@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable import/no-unresolved */
+
 import { Navigate, Route, Routes } from 'react-router';
 
 import { MainLayout } from '@/components/MainLayout/MainLayout';
 import ProtectRoutes from '@/components/ProtectRoutes/ProtectRoutes';
 import { loadAccess } from '@/lib/authentication';
+//@ts-ignore
 import { Dashboard, Login } from '@/pages';
 
 export const AppRoutes = () => {
@@ -10,7 +14,10 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={hasAcess ? <Navigate to="dashboard" /> : <Login />} />
+      <Route
+        path="login-and-dashboard"
+        element={hasAcess ? <Navigate to="dashboard" /> : <Login />}
+      />
       <Route path="login" element={<Login />} />
 
       <Route element={<ProtectRoutes />}>
