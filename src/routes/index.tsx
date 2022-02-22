@@ -10,12 +10,12 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={hasAcess ? <Navigate to="/dashboard" /> : <Login />} />
-      <Route path="/login" element={<Login />} />
+      <Route index element={hasAcess ? <Navigate to="dashboard" /> : <Login />} />
+      <Route path="login" element={<Login />} />
 
       <Route element={<ProtectRoutes />}>
         <Route element={<MainLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
