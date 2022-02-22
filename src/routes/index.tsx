@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router';
 
-import { Dashboard, Login } from '../pages/index';
-
 import { MainLayout } from '@/components/MainLayout/MainLayout';
 import ProtectRoutes from '@/components/ProtectRoutes/ProtectRoutes';
 import { loadAccess } from '@/lib/authentication';
+import { Dashboard } from '@/pages/Dashboard/Dashboard';
+import { Login } from '@/pages/Login/Login';
 
 export const AppRoutes = () => {
   const hasAcess = loadAccess();
