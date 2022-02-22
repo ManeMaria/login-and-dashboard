@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable import/no-unresolved */
-
 import { Navigate, Route, Routes } from 'react-router';
 
-import { Dashboard, Login } from '../pages';
+import { Dashboard, Login } from '../pages/index';
 
 import { MainLayout } from '@/components/MainLayout/MainLayout';
 import ProtectRoutes from '@/components/ProtectRoutes/ProtectRoutes';
