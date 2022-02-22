@@ -38,7 +38,13 @@ export function MenuSideBar() {
             </List>
           </nav>
           <Box w="85%" m="auto auto 0 auto" borderTop="1px solid " borderColor="gray.100">
-            <Text color="green.200" fontSize="0.8em" textTransform="uppercase">
+            <Text
+              color="green.200"
+              fontSize="0.8em"
+              textTransform="uppercase"
+              fontWeight="600"
+              mt="10px"
+            >
               programador
             </Text>
             <Text color="gray.300" fontSize="0.8em">

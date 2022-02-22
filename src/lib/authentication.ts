@@ -15,6 +15,7 @@ function logoutFn(callback: VoidFunction) {
 
 function loadAccess(): boolean {
   const user = storage.getUser() || session.getUser();
+  console.log(user);
   const access = cookies.getAccess();
 
   if (!user || !access) {

@@ -53,8 +53,12 @@ export function Products() {
     },
   };
   return (
-    <Box w="95%">
-      <Grid templateColumns="repeat(8, 1fr)" templateRows="repeat(4, 1fr)" gap={2}>
+    <Box bg="blue" w="97%">
+      <Grid
+        templateColumns={['repeat(1, 1fr), repeat(8, 1fr)']}
+        templateRows={['repeat(1, 1fr), repeat(4, 1fr)']}
+        gap={2}
+      >
         {infoProducts.map((info, i) => (
           <GridItem key={i} bg="white.50">
             <Text>{info.title}</Text>
