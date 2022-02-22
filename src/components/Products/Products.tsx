@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Grid, GridItem, Text } from '@chakra-ui/react';
 import { ApexOptions } from 'apexcharts';
 import ReactApexChart from 'react-apexcharts';
 
@@ -53,39 +53,40 @@ export function Products() {
     },
   };
   return (
-    <Box bg="blue" w="97%">
-      <Grid
-        templateColumns={['repeat(1, 1fr), repeat(8, 1fr)']}
-        templateRows={['repeat(1, 1fr), repeat(4, 1fr)']}
-        gap={2}
-      >
-        {infoProducts.map((info, i) => (
-          <GridItem key={i} bg="white.50">
-            <Text>{info.title}</Text>
-          </GridItem>
-        ))}
-        {infoProducts.map((info, i) => (
-          <GridItem key={i} bg="white.50">
-            <Text>{info.title}</Text>
-          </GridItem>
-        ))}
-        <GridItem bg="white.50" colSpan={2}>
-          <Text bg="white.50">Status das entregas</Text>
-          <ReactApexChart options={state.options} series={state.series} type="pie" />
+    <Grid
+      templateColumns={['repeat(1, 1fr)', 'repeat(8, 1fr)']}
+      templateRows={['repeat(1, 1fr)', 'repeat(4, 1fr)']}
+      gap={2}
+      bg="yellow"
+      w={['100%', '100%', '80%']}
+      p="10px"
+    >
+      {infoProducts.map((info, i) => (
+        <GridItem borderRadius="10px" key={i} bg="white.50">
+          <Text>{info.title}</Text>
         </GridItem>
-        <GridItem bg="white.50" colSpan={2} rowSpan={2}>
-          <Text>Problemas da entrega</Text>
+      ))}
+      {infoProducts.map((info, i) => (
+        <GridItem borderRadius="10px" key={i} bg="white.50">
+          <Text>{info.title}</Text>
         </GridItem>
-        <GridItem bg="red" colSpan={4} rowSpan={3}>
-          <Text>Total de não conformidades por fase</Text>
-        </GridItem>
-        <GridItem bg="white.50" colSpan={2}>
-          <Text>Motivo de bloqueio nas entregas</Text>
-        </GridItem>
-        <GridItem bg="white.50" colSpan={4}>
-          <Text>Motivo de bloqueio nas entregas</Text>
-        </GridItem>
-      </Grid>
-    </Box>
+      ))}
+      <GridItem borderRadius="10px" bg="white.50" colSpan={[1, 2]}>
+        <Text bg="white.50">Status das entregas</Text>
+        <ReactApexChart options={state.options} series={state.series} type="pie" />
+      </GridItem>
+      <GridItem borderRadius="10px" bg="white.50" colSpan={[1, 2]} rowSpan={[1, 2]}>
+        <Text>Problemas da entrega</Text>
+      </GridItem>
+      <GridItem borderRadius="10px" bg="white.50" colSpan={4} rowSpan={[1, 3]}>
+        <Text>Total de não conformidades por fase</Text>
+      </GridItem>
+      <GridItem borderRadius="10px" bg="white.50" colSpan={[1, 2]}>
+        <Text>Motivo de bloqueio nas entregas</Text>
+      </GridItem>
+      <GridItem borderRadius="10px" bg="white.50" colSpan={4}>
+        <Text>Motivo de bloqueio nas entregas</Text>
+      </GridItem>
+    </Grid>
   );
 }

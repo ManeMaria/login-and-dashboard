@@ -4,7 +4,7 @@ import { Products } from '@/components/Products/Products';
 
 export function Dashboard() {
   return (
-    <Flex boxSizing="border-box">
+    <Flex w="100%" alignItems="center" bg="red" m="auto">
       <Products />
     </Flex>
   );

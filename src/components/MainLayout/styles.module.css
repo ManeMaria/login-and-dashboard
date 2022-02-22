@@ -1,0 +1,6 @@
+.main {
+  width: min(120em, 100vw);
+  height: 100vh;
+  margin: auto;
+  position: relative
+}
