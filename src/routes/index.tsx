@@ -10,7 +10,7 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route index element={hasAcess ? <Navigate to="dashboard" /> : <Login />} />
+      <Route path="/" element={hasAcess ? <Navigate to="dashboard" /> : <Login />} />
       <Route path="login" element={<Login />} />
 
       <Route element={<ProtectRoutes />}>
