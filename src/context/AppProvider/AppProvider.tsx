@@ -1,7 +1,7 @@
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { AuthProvider } from '../global-provider/Global';
+import { AuthProvider } from '../AuthProvider/AuthProvider';
 
 import { theme } from '@/styles';
 import { IChildrenReact } from '@/types/IChildrenReact';

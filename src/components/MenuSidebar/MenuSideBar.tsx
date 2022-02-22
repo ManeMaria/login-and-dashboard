@@ -1,11 +1,15 @@
 import { Flex, Image, Box, Text, List, ListItem } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 import dashboard from '@/assets/icons/icon-dashboard.svg';
 import exit from '@/assets/icons/icon-exit.svg';
 import elementeMenuNavBottom from '@/assets/images/elemente-menu-nav-bottom.svg';
 import elementeMenuNavTop from '@/assets/images/elemente-menu-nav-top.svg';
+import { useAuth } from '@/context/AuthProvider/AuthProvider';
 
 export function MenuSideBar() {
+  const { signout } = useAuth();
+  const navigate = useNavigate();
   return (
     <aside>
       <Flex h="100%" w="250px" flexDirection="column" bg="white.50" justifyContent="center">
@@ -40,7 +44,8 @@ export function MenuSideBar() {
             <Text color="gray.300" fontSize="0.8em">
               César Damasceno
             </Text>
-            <Flex m="20px 0" cursor="pointer">
+
+            <Flex m="20px 0" cursor="pointer" onClick={() => signout(() => navigate('login'))}>
               <Image src={exit} alt="icon dashboard" />
               <Text color="gray.300" fontSize="0.8em" m="0 10px">
                 Sair
@@ -48,7 +53,6 @@ export function MenuSideBar() {
             </Flex>
           </Box>
         </Flex>
-
         <Flex alignItems="flex-end" d={['none', 'flex']} pos="relative">
           <Image src={elementeMenuNavBottom} alt="elemento menu baixo" />
           <Box zIndex="2" pos="absolute" left="5%" top="80px">

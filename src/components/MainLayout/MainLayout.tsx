@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-import { Header } from '../Header';
+import { Header } from '../Header/Header';
 import { MenuSideBar } from '../MenuSidebar/MenuSideBar';
 
 export function MainLayout() {
@@ -29,7 +29,9 @@ export function MainLayout() {
           p="0px 20px 20px 20px"
         >
           <Header />
-          <Outlet />
+          <Box w="100%">
+            <Outlet />
+          </Box>
         </Box>
       </Flex>
     </main>

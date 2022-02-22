@@ -7,11 +7,12 @@ import elementBottomRight from '@/assets/images/element-bottom-right.svg';
 import elementTopLeft from '@/assets/images/element-top-left.svg';
 import logo2 from '@/assets/images/leaf-2kb.png';
 import { FormLogin } from '@/components/FormLogin/FormLogin';
-import { useAuth } from '@/context/global-provider/Global';
+import { useAuth } from '@/context/AuthProvider/AuthProvider';
 import { useMessages } from '@/hooks/useMessages';
 // import { decodeUserData } from '@/lib/authentication';
 import { HTMLElementEvent } from '@/types/htmlElementEvent';
 import { cookies, storage } from '@/utils';
+import { session } from '@/utils/session';
 
 export const Login = () => {
   const { signin } = useAuth();
@@ -69,19 +70,27 @@ export const Login = () => {
         return;
       }
 
-      const isUser = await getUser(user, password);
+      const tokenAccess = await getUser(user, password);
 
-      if (isUser) {
+      if (tokenAccess) {
         setIsLoading(false);
-        const decodeUser = isUser; //recebe a função de decode
+        const decodeUser = tokenAccess; //recebe a função de decode
 
         //lembra o login
-        storage.setRememberMe(RememberMe.checked);
-        storage.setUser({ id: decodeUser });
+        if (RememberMe.checked) {
+          storage.setUser({ id: decodeUser });
+        }
 
+        session.setUser({ id: decodeUser });
         //pegará o token
-        cookies.setAccess(isUser);
-        signin(decodeUser, () => navigate('dashboard'));
+        cookies.setAccess(tokenAccess);
+        signin(
+          {
+            dataUser: decodeUser,
+            token: tokenAccess,
+          },
+          () => navigate('dashboard'),
+        );
       }
 
       // decodeUserData

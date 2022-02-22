@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import { Input } from '../Input/Input';
 
 import { IDynamicProps } from '@/types/dynamicProps';
-
 import './input.styles.css';
+import { colorHandle } from '@/utils/functions';
 
 interface IInputLogin extends IDynamicProps {
   label: string;
@@ -16,25 +16,8 @@ export function InputLogin({ label, ...resProps }: IInputLogin) {
   const labelRef = useRef<HTMLLabelElement | null>(null);
 
   useEffect((): void => {
-    colorHandle();
+    colorHandle(colorMode, input, labelRef);
   }, [colorMode]);
-
-  function colorHandle(): void {
-    const elementeInput = input.current;
-    const elementeLabel = labelRef.current;
-    if (!elementeInput || !elementeInput) {
-      return;
-    }
-    elementeInput!.style.cssText =
-      colorMode === 'dark'
-        ? 'color: var(--white); background: #1a202c; border-color: var(--green'
-        : 'color: var(--green)';
-
-    elementeLabel!.style.cssText =
-      colorMode === 'dark'
-        ? 'color: var(--white); background: #1a202c; border-color: var(--green'
-        : 'color: var(--green)';
-  }
 
   return (
     <div className={`label-float div-float inputlabel`}>

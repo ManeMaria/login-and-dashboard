@@ -1,12 +1,15 @@
 @import url('../../styles/css/root.css');
 
+.labelFloat {
+  position: relative
+}
 
-.label-float input {
+.labelFloat select {
   height: 48px;
   border: 1px solid var(--light-gray);
   border-radius: 8px;
   outline: none;
-  padding: 2px 1em;
+  padding: 0px 1em;
   transition: all .1s linear;
   -webkit-transition: all .1s linear;
   -moz-transition: all .1s linear;
@@ -15,47 +18,32 @@
   color: var(--gray);
 }
 
-.label-float input:focus {
+.labelFloat select:focus {
   border: 1px solid var(--green);
 }
 
-.label-float input::placeholder {
-  color: transparent;
-}
-
-.label-float label {
+.labelFloat label {
   pointer-events: none;
   position: absolute;
-  left: 15px;
+  inset: 2px auto auto 15px;
   transition: all 0.1s linear;
   -webkit-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   background: var(--white);
-  padding: 0 7px;
+  padding: 0 4px;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 0.8em;
   font-family: inherit;
   color: var(--green);
-}
-
-.inputlabel label {
-  top: calc(50% - 6px);
-}
-
-.label-float input:focus+label,
-.label-float input:not(:placeholder-shown)+label {
-  font-size: 0.8em;
-  top: 0;
-  color: var(--green);
-  padding: 2px 7px;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 700px) {
-  .label-float input {
+  .labelFloat select {
     width: 100%;
   }
 
-  .label-float {
+  .labelFloat {
     position: relative;
     padding-top: 12px;
   }
@@ -64,16 +52,16 @@
 
 @media screen and (max-width: 699px) {
 
-  .div-float {
+  .divFloat {
     display: block;
   }
 
-  .label-float {
+  .labelFloat {
     position: relative;
     padding-top: 10px;
   }
 
-  .label-float input {
+  .labelFloat select {
     width: calc(100% - 6px);
   }
 

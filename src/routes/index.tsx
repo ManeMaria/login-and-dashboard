@@ -7,7 +7,7 @@ import { Dashboard, Login } from '@/pages';
 
 export const AppRoutes = () => {
   const hasAcess = loadAccess();
-  console.log('hasAcess', hasAcess);
+
   return (
     <Routes>
       <Route path="/" element={hasAcess ? <Navigate to="/dashboard" /> : <Login />} />

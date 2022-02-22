@@ -9,7 +9,7 @@ export function Header() {
       alignItems="center"
       p="25px 0"
     >
-      <Text textTransform="uppercase" fontWeight="900" fontSize="1.5em">
+      <Text textTransform="uppercase" fontWeight="900" fontSize="1.5em" color="balck">
         dashboard
       </Text>
       <Box w="1px" h="100%" bg="gray.100" margin="0 20px"></Box>

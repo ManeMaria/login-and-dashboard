@@ -6,7 +6,7 @@ export default extendTheme({
   styles,
   colors: {
     green: {
-      50: '#A4BD8C',
+      50: '#e0e9d8',
       100: '#75981E',
       200: '#558B2F',
     },
@@ -22,7 +22,7 @@ export default extendTheme({
     },
   },
   config: {
-    initialColorMode: 'dark',
+    initialColorMode: 'light',
     useSystemColorMode: false,
   },
 });

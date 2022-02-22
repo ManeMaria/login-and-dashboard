@@ -44,7 +44,7 @@ export function FormLogin({ isLoading, ...restProps }: IForm) {
             isLoading={isLoading}
             bg="green.100"
             color="white.50"
-            spinner={<BeatLoader size={8} color="white.50" />}
+            spinner={<BeatLoader size={8} color="white" />}
           >
             Enviar
           </Button>
