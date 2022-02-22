@@ -14,10 +14,7 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route
-        path="login-and-dashboard"
-        element={hasAcess ? <Navigate to="dashboard" /> : <Login />}
-      />
+      <Route path="/" element={hasAcess ? <Navigate to="dashboard" /> : <Login />} />
       <Route path="login" element={<Login />} />
 
       <Route element={<ProtectRoutes />}>
