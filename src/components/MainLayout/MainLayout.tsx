@@ -23,7 +23,7 @@ export function MainLayout() {
           p="0px 20px 20px 20px"
         >
           <Header />
-          <Box w="100%" alignItems="center" gb="green" h="50%">
+          <Box w="100%" h="90%" margin="0 auto">
             <Outlet />
           </Box>
         </Box>
