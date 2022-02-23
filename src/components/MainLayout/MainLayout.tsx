@@ -12,7 +12,7 @@ export function MainLayout() {
         <MenuSideBar />
         <Box w="100%" h="10%" bgGradient="linear(to-tr, green.100, green.200)" />
         <Box
-          w={['calc(100% - 250px)']}
+          w={['calc(100% - 230px)']}
           h="calc(100vh - 10px)"
           bg="white.200"
           pos="absolute"
@@ -23,7 +23,7 @@ export function MainLayout() {
           p="0px 20px 20px 20px"
         >
           <Header />
-          <Box w="100%" h="90%" margin="0 auto">
+          <Box w="100%" margin="0 auto" overflowY="scroll">
             <Outlet />
           </Box>
         </Box>

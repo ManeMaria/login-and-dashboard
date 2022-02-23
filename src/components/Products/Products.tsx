@@ -122,7 +122,7 @@ export function Products() {
     },
   };
   return (
-    <Flex p="10px" flexWrap={['wrap', 'nowrap']}>
+    <Flex p="10px" flexWrap={['wrap', 'nowrap']} justify="center" alignItem="center" w={'100%'}>
       <Box>
         <Flex>
           {infoProducts.map((info, i) => (
@@ -196,7 +196,7 @@ export function Products() {
           </Box>
         </Flex>
       </Box>
-      <Flex flexDir="column" h="100%">
+      <Flex flexDir="column">
         <Flex>
           {infoProducts.map((info, i) => (
             <Box
@@ -211,24 +211,26 @@ export function Products() {
             </Box>
           ))}
         </Flex>
-        <Box borderRadius="10px" bg="white.50" flex="1" h="100%" m={`${gap}`} p="10px" w="100%">
-          <Flex h="30px">
-            <Text
-              h="100%"
-              fontWeight="600"
-              p=" 0 0  8px 0"
-              borderBottom="3px solid"
-              borderColor="green.200"
-              w="20%"
-            >
-              Entregas
-            </Text>
-            <Box borderBottom="1px solid" borderColor="gray.100" w="100%" h="100%" p="5px" />
-          </Flex>
-          <Box w="50%">
-            <Select label="Status da entrega">
-              <option>Entregue</option>
-            </Select>
+        <Box borderRadius="10px" bg="white.50" flex="1" h="100%" m={`${gap}`} p="10px">
+          <Box>
+            <Flex h="30px">
+              <Text
+                h="100%"
+                fontWeight="600"
+                p=" 0 0  8px 0"
+                borderBottom="3px solid"
+                borderColor="green.200"
+                w="20%"
+              >
+                Entregas
+              </Text>
+              <Box borderBottom="1px solid" borderColor="gray.100" w="100%" h="100%" p="5px" />
+            </Flex>
+            <Box w="50%">
+              <Select label="Status da entrega">
+                <option>Entregue</option>
+              </Select>
+            </Box>
           </Box>
         </Box>
       </Flex>

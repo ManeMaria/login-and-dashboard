@@ -4,7 +4,7 @@ import { Products } from '@/components/Products/Products';
 
 export function Dashboard() {
   return (
-    <Flex overflow="scroll" h="100%">
+    <Flex justifyContent={'center'} w={'100%'}>
       <Products />
     </Flex>
   );
