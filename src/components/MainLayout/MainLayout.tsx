@@ -20,7 +20,7 @@ export function MainLayout() {
           left="230px"
           borderTopLeftRadius="5px"
           borderTopRightRadius="5px"
-          p="0px 20px 20px 20px"
+          p="0px 10px 10px 10px"
         >
           <Header />
           <Box w="100%" margin="0 auto" overflowY="scroll">

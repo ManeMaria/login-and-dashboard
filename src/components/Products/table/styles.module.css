@@ -1,0 +1,12 @@
+@import '../../../styles//css/root.css';
+
+.table {
+  width: 100%;
+  font-family: inherit;
+}
+
+.table .tr:nth-child(even) {
+  background: var(--every-light-gray);
+  border-radius: 8px;
+}
+
