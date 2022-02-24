@@ -15,8 +15,8 @@ import { cookies, storage } from '@/utils';
 import { session } from '@/utils/session';
 
 export const Login = () => {
-  const { signin } = useAuth();
   const navigate = useNavigate();
+  const { signin } = useAuth();
   const { setOptions } = useMessages();
   const [isLoading, setIsLoading] = useState(false);
   const isMountedRef = useRef(false);
@@ -89,7 +89,7 @@ export const Login = () => {
             dataUser: decodeUser,
             token: tokenAccess,
           },
-          () => navigate('dashboard'),
+          () => navigate('/dashboard'),
         );
       }
 

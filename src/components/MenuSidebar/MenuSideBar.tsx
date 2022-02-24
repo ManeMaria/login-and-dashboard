@@ -5,10 +5,9 @@ import dashboard from '@/assets/icons/icon-dashboard.svg';
 import exit from '@/assets/icons/icon-exit.svg';
 import elementeMenuNavBottom from '@/assets/images/elemente-menu-nav-bottom.svg';
 import elementeMenuNavTop from '@/assets/images/elemente-menu-nav-top.svg';
-import { useAuth } from '@/context/AuthProvider/AuthProvider';
+import { logoutFn } from '@/lib/authentication';
 
 export function MenuSideBar() {
-  const { signout } = useAuth();
   const navigate = useNavigate();
   return (
     <aside>
@@ -51,7 +50,13 @@ export function MenuSideBar() {
               César Damasceno
             </Text>
 
-            <Flex m="20px 0" cursor="pointer" onClick={() => signout(() => navigate('login'))}>
+            <Flex
+              m="20px 0"
+              cursor="pointer"
+              onClick={() => {
+                logoutFn(() => navigate('/login'));
+              }}
+            >
               <Image src={exit} alt="icon dashboard" />
               <Text color="gray.300" fontSize="0.8em" m="0 10px">
                 Sair

@@ -10,7 +10,6 @@ interface AuthProvider {
 interface AuthContextType {
   user: AuthProvider;
   signin: (values: AuthProvider, callback: VoidFunction) => void;
-  signout: (callback: VoidFunction) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>(null!);
@@ -26,15 +25,7 @@ export function AuthProvider({ children }: IChildrenReact) {
     callback();
   };
 
-  const signout = (callback: VoidFunction) => {
-    setUser({
-      dataUser: null,
-      token: null,
-    });
-    callback();
-  };
-
-  const value = { user, signin, signout };
+  const value = { user, signin };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
