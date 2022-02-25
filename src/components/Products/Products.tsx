@@ -225,7 +225,7 @@ export function Products() {
 
   return (
     <Flex pt="20px" flexWrap={['wrap', 'nowrap']} justify="center" maxW={'90em'} m="0 auto">
-      <Box flex={'1'} flexDir="column">
+      <Flex flex={'1'} flexDir="column">
         <ProductInformation isloading={isloading} error={error} data={data} />
         <Flex flexDir="column">
           <Flex flex="1">
@@ -278,11 +278,11 @@ export function Products() {
             </Box>
           </Box>
         </Flex>
-      </Box>
-      <Box flexDir="column" flex={'1'}>
+      </Flex>
+      <Flex flexDir="column" flex={'1'}>
         <DataAvarage />
         <DeliveryStatus />
-      </Box>
+      </Flex>
     </Flex>
   );
 }
