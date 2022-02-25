@@ -23,7 +23,7 @@ export function MainLayout() {
           p="0px 10px 10px 10px"
         >
           <Header />
-          <Box w="100%" margin="0 auto" overflowY="scroll">
+          <Box w="100%" margin="0 auto" overflowY="scroll" height="90%">
             <Outlet />
           </Box>
         </Box>

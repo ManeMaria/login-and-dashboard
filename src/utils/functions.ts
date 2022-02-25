@@ -15,3 +15,7 @@ export function colorHandle(colorMode: ColorMode, ...refs: MutableRefObject<any>
         : 'color: var(--green)';
   }
 }
+
+export function createArrays(size: number, fill = '-'): string[] {
+  return new Array(size).fill(fill);
+}

@@ -9,10 +9,15 @@ import logo2 from '@/assets/images/leaf-2kb.png';
 import { FormLogin } from '@/components/FormLogin/FormLogin';
 import { useAuth } from '@/context/AuthProvider/AuthProvider';
 import { useMessages } from '@/hooks/useMessages';
-// import { decodeUserData } from '@/lib/authentication';
+import { api } from '@/lib/axios';
 import { HTMLElementEvent } from '@/types/htmlElementEvent';
 import { cookies, storage } from '@/utils';
 import { session } from '@/utils/session';
+
+type getUser = {
+  refreshToken: string;
+  token: string;
+};
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -22,21 +27,21 @@ export const Login = () => {
   const isMountedRef = useRef(false);
 
   //evita erro de vazamento de memória do react
-  useEffect((): any => {
+  useEffect(() => {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
     };
   }, []);
 
-  const getUser = async (user: string, password: string): Promise<any> => {
-    isMountedRef.current = true;
-
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('test-token');
-      }, 1000);
+  const getUser = async (user: string, password: string): Promise<getUser> => {
+    const {
+      data: { data },
+    } = await api.post('https://621584abc9c6ebd3ce2a353c.mockapi.io/api/ps/login', {
+      user,
+      password,
     });
+    return data;
   };
 
   const validateInputs = (...fields: HTMLInputElement[]): boolean | undefined => {
@@ -70,11 +75,11 @@ export const Login = () => {
         return;
       }
 
-      const tokenAccess = await getUser(user, password);
+      const { token, refreshToken } = await getUser(user.value, password.value);
 
-      if (tokenAccess) {
+      if (token) {
         setIsLoading(false);
-        const decodeUser = tokenAccess; //recebe a função de decode
+        const decodeUser = token; //recebe a função de decode
 
         //lembra o login
         if (RememberMe.checked) {
@@ -82,12 +87,13 @@ export const Login = () => {
         }
 
         session.setUser({ id: decodeUser });
-        //pegará o token
-        cookies.setAccess(tokenAccess);
+        cookies.setAccess(token);
+        cookies.setRefresh(refreshToken);
+
         signin(
           {
             dataUser: decodeUser,
-            token: tokenAccess,
+            token: token,
           },
           () => navigate('/dashboard'),
         );

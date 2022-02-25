@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 
 export function Header() {
   return (
-    <Flex borderBottom="1px solid" borderColor="gray.100" height="60px" alignItems="center">
+    <Flex borderBottom="1px solid" borderColor="gray.100" height="70px" alignItems="center">
       <Text textTransform="uppercase" fontWeight="900" fontSize="1.5em" color="balck">
         dashboard
       </Text>
