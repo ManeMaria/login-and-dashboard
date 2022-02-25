@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/login-and-dashboard/static/css/main.aa26d369.chunk.css",
-    "main.js": "/login-and-dashboard/static/js/main.316ee50a.chunk.js",
-    "main.js.map": "/login-and-dashboard/static/js/main.316ee50a.chunk.js.map",
+    "main.css": "/login-and-dashboard/static/css/main.03f06010.chunk.css",
+    "main.js": "/login-and-dashboard/static/js/main.184b49e7.chunk.js",
+    "main.js.map": "/login-and-dashboard/static/js/main.184b49e7.chunk.js.map",
     "runtime-main.js": "/login-and-dashboard/static/js/runtime-main.e0e859b8.js",
     "runtime-main.js.map": "/login-and-dashboard/static/js/runtime-main.e0e859b8.js.map",
     "static/css/2.cb6935a1.chunk.css": "/login-and-dashboard/static/css/2.cb6935a1.chunk.css",
-    "static/js/2.594a4503.chunk.js": "/login-and-dashboard/static/js/2.594a4503.chunk.js",
-    "static/js/2.594a4503.chunk.js.map": "/login-and-dashboard/static/js/2.594a4503.chunk.js.map",
+    "static/js/2.f1986e10.chunk.js": "/login-and-dashboard/static/js/2.f1986e10.chunk.js",
+    "static/js/2.f1986e10.chunk.js.map": "/login-and-dashboard/static/js/2.f1986e10.chunk.js.map",
     "index.html": "/login-and-dashboard/index.html",
     "static/css/2.cb6935a1.chunk.css.map": "/login-and-dashboard/static/css/2.cb6935a1.chunk.css.map",
-    "static/css/main.aa26d369.chunk.css.map": "/login-and-dashboard/static/css/main.aa26d369.chunk.css.map",
-    "static/js/2.594a4503.chunk.js.LICENSE.txt": "/login-and-dashboard/static/js/2.594a4503.chunk.js.LICENSE.txt",
+    "static/css/main.03f06010.chunk.css.map": "/login-and-dashboard/static/css/main.03f06010.chunk.css.map",
+    "static/js/2.f1986e10.chunk.js.LICENSE.txt": "/login-and-dashboard/static/js/2.f1986e10.chunk.js.LICENSE.txt",
     "static/media/arrow.0c1ea91f.svg": "/login-and-dashboard/static/media/arrow.0c1ea91f.svg",
     "static/media/element-bottom-right.28e2aaac.svg": "/login-and-dashboard/static/media/element-bottom-right.28e2aaac.svg",
     "static/media/element-top-left.0022f093.svg": "/login-and-dashboard/static/media/element-top-left.0022f093.svg",
@@ -31,8 +31,8 @@
   "entrypoints": [
     "static/js/runtime-main.e0e859b8.js",
     "static/css/2.cb6935a1.chunk.css",
-    "static/js/2.594a4503.chunk.js",
-    "static/css/main.aa26d369.chunk.css",
-    "static/js/main.316ee50a.chunk.js"
+    "static/js/2.f1986e10.chunk.js",
+    "static/css/main.03f06010.chunk.css",
+    "static/js/main.184b49e7.chunk.js"
   ]
 }
