@@ -5,13 +5,23 @@ import dashboard from '@/assets/icons/icon-dashboard.svg';
 import exit from '@/assets/icons/icon-exit.svg';
 import elementeMenuNavBottom from '@/assets/images/elemente-menu-nav-bottom.svg';
 import elementeMenuNavTop from '@/assets/images/elemente-menu-nav-top.svg';
+import { useAuth } from '@/context/AuthProvider/AuthProvider';
 import { logoutFn } from '@/lib/authentication';
 
 export function MenuSideBar() {
   const navigate = useNavigate();
+  const {
+    user: { dataUser },
+  } = useAuth();
   return (
     <aside>
-      <Flex h="100%" w="250px" flexDirection="column" bg="white.50" justifyContent="center">
+      <Flex
+        h="100%"
+        w={['80px', '250px']}
+        flexDirection="column"
+        bg="white.50"
+        justifyContent="center"
+      >
         <Flex alignItems="flex-start" d={['none', 'flex']}>
           <Image src={elementeMenuNavTop} alt="elemento menu top" />
         </Flex>
@@ -29,7 +39,7 @@ export function MenuSideBar() {
               >
                 <Flex alignItems="center" h="100%" w="100%">
                   <Image src={dashboard} alt="icon dashboard" />
-                  <Text color="green.200" fontWeight="600" ml="10px">
+                  <Text color="green.200" fontWeight="600" ml="10px" d={['none', 'block']}>
                     Dashboard
                   </Text>
                 </Flex>
@@ -47,7 +57,7 @@ export function MenuSideBar() {
               programador
             </Text>
             <Text color="gray.300" fontSize="0.8em">
-              César Damasceno
+              {dataUser?.name}
             </Text>
 
             <Flex

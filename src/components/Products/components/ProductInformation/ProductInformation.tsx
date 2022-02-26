@@ -8,7 +8,7 @@ interface IDataProps {
   lateRisk: number;
   late: number;
 }
-interface IProductInformation {
+export interface IProductInformation {
   data: IDataProps;
   isloading: boolean;
   error: string | null;

@@ -14,19 +14,24 @@ import { HTMLElementEvent } from '@/types/htmlElementEvent';
 import { cookies, storage } from '@/utils';
 import { session } from '@/utils/session';
 
-type getUser = {
+type AuthUser = {
   refreshToken: string;
   token: string;
 };
 
-export const Login = () => {
+type GetUser = {
+  name: string;
+  avatar: string;
+};
+
+export function Login() {
   const navigate = useNavigate();
-  const { signin } = useAuth();
+  const { setUser } = useAuth();
   const { setOptions } = useMessages();
   const [isLoading, setIsLoading] = useState(false);
   const isMountedRef = useRef(false);
 
-  //evita erro de vazamento de memória do react
+  //evita o problema de vazamento de memória do react
   useEffect(() => {
     isMountedRef.current = true;
     return () => {
@@ -34,7 +39,7 @@ export const Login = () => {
     };
   }, []);
 
-  const getUser = async (user: string, password: string): Promise<getUser> => {
+  async function authUser(user: string, password: string): Promise<AuthUser> {
     const {
       data: { data },
     } = await api.post('https://621584abc9c6ebd3ce2a353c.mockapi.io/api/ps/login', {
@@ -42,9 +47,16 @@ export const Login = () => {
       password,
     });
     return data;
-  };
+  }
 
-  const validateInputs = (...fields: HTMLInputElement[]): boolean | undefined => {
+  async function getUser(): Promise<GetUser> {
+    const {
+      data: { data },
+    } = await api('https://621584abc9c6ebd3ce2a353c.mockapi.io/api/ps/me');
+    return data;
+  }
+
+  function validateInputs(...fields: HTMLInputElement[]): boolean | undefined {
     for (const input of fields) {
       if (!input.value.trim()) {
         return false;
@@ -52,9 +64,9 @@ export const Login = () => {
 
       return true;
     }
-  };
+  }
 
-  const handleSubmit = async (event: HTMLElementEvent<HTMLFormElement>): Promise<void> => {
+  async function handleSubmit(event: HTMLElementEvent<HTMLFormElement>): Promise<void> {
     if (!isMountedRef.current) {
       return;
     }
@@ -75,31 +87,29 @@ export const Login = () => {
         return;
       }
 
-      const { token, refreshToken } = await getUser(user.value, password.value);
+      const { token, refreshToken } = await authUser(user.value, password.value);
 
       if (token) {
         setIsLoading(false);
-        const decodeUser = token; //recebe a função de decode
 
-        //lembra o login
-        if (RememberMe.checked) {
-          storage.setUser({ id: decodeUser });
+        const dataUser = await getUser();
+
+        if (dataUser) {
+          //lembra o login
+          if (RememberMe.checked) {
+            storage.setUser({ ...dataUser, token });
+          }
+
+          session.setUser({ ...dataUser, token });
+          cookies.setAccess(token);
+          cookies.setRefresh(refreshToken);
+          setUser({
+            dataUser,
+            token,
+          });
+          navigate('/dashboard');
         }
-
-        session.setUser({ id: decodeUser });
-        cookies.setAccess(token);
-        cookies.setRefresh(refreshToken);
-
-        signin(
-          {
-            dataUser: decodeUser,
-            token: token,
-          },
-          () => navigate('/dashboard'),
-        );
       }
-
-      // decodeUserData
     } catch (error) {
       if (error instanceof Error) {
         setOptions({
@@ -112,7 +122,7 @@ export const Login = () => {
     }
 
     setIsLoading(false);
-  };
+  }
 
   return (
     <Fade in={true} delay={0.8}>
@@ -158,4 +168,4 @@ export const Login = () => {
       </Flex>
     </Fade>
   );
-};
+}

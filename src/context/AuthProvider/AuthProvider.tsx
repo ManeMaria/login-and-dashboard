@@ -9,7 +9,7 @@ interface AuthProvider {
 
 interface AuthContextType {
   user: AuthProvider;
-  signin: (values: AuthProvider, callback: VoidFunction) => void;
+  setUser: React.Dispatch<React.SetStateAction<AuthProvider>>;
 }
 
 export const AuthContext = createContext<AuthContextType>(null!);
@@ -20,12 +20,7 @@ export function AuthProvider({ children }: IChildrenReact) {
     token: null,
   });
 
-  const signin = (values: AuthProvider, callback: VoidFunction) => {
-    setUser(values);
-    callback();
-  };
-
-  const value = { user, signin };
+  const value = { user, setUser };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

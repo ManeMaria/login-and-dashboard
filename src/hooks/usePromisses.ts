@@ -1,10 +1,16 @@
 import { useEffect, useReducer } from 'react';
 
 import { api } from '@/lib/axios';
+interface ITypes {
+  data: any[];
+  isloading: boolean;
+  error: null | string;
+  path: string;
+}
 
 export function usePromisses() {
   const [values, dispatch] = useReducer(
-    (values, dispatch) => {
+    (values: ITypes, dispatch) => {
       switch (dispatch.type) {
         case 'pathIncluded':
           return {

@@ -1,4 +1,4 @@
-import { Box, Flex, Skeleton, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, Skeleton } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 import TableInfo, { IInfos } from '../table/TableInfo';
@@ -15,6 +15,7 @@ export default function DeliveryStatus() {
     data: { deliveries },
     setPath,
   } = usePromisses();
+
   useEffect(() => {
     setPath('https://621584abc9c6ebd3ce2a353c.mockapi.io/api/ps/deliveries');
   }, []);
@@ -52,41 +53,45 @@ export default function DeliveryStatus() {
   }
 
   return (
-    <Skeleton isLoaded={!isloading}>
-      <Flex borderRadius="10px" bg="white.50" flex="1" m={`5px`} p="10px">
-        <Flex flexDir="column" w={'100%'}>
-          <Flex h="30px">
-            <Text
-              h="100%"
-              fontWeight="600"
-              p=" 0 0  8px 0"
-              borderBottom="3px solid"
-              borderColor="green.200"
-              w="20%"
-            >
-              Entregas
-            </Text>
-            <Box borderBottom="1px solid" borderColor="gray.100" w="100%" h="100%" p="5px" />
-          </Flex>
+    <>
+      {isloading ? (
+        <Skeleton flex="1" m="5px" p="10px" borderRadius="10px" h="700px" />
+      ) : (
+        <Flex borderRadius="10px" bg="white.50" flex="1" m="5px" p="10px">
+          <Flex flexDir="column" w={'100%'}>
+            <Flex h="30px">
+              <Text
+                h="100%"
+                fontWeight="600"
+                p=" 0 0  8px 0"
+                borderBottom="3px solid"
+                borderColor="green.200"
+                w="20%"
+              >
+                Entregas
+              </Text>
+              <Box borderBottom="1px solid" borderColor="gray.100" w="100%" h="100%" p="5px" />
+            </Flex>
 
-          <Box w="50%">
-            <Select
-              label="Status da entrega"
-              onChange={({ target }) => handleFilterOptions(target.value)}
-            >
-              <option value={0} key={0}>
-                Seleciona um status
-              </option>
-              {optionsFilter?.map((op) => (
-                <option value={op} key={op}>
-                  {op}
+            <Box w="50%">
+              <Select
+                label="Status da entrega"
+                onChange={({ target }) => handleFilterOptions(target.value)}
+              >
+                <option value={0} key={0}>
+                  Seleciona um status
                 </option>
-              ))}
-            </Select>
-          </Box>
-          <TableInfo data={options} />
+                {optionsFilter?.map((op) => (
+                  <option value={op} key={op}>
+                    {op}
+                  </option>
+                ))}
+              </Select>
+            </Box>
+            <TableInfo data={options} />
+          </Flex>
         </Flex>
-      </Flex>
-    </Skeleton>
+      )}
+    </>
   );
 }

@@ -2,11 +2,9 @@ import { USER_INFO_ID } from '@/config';
 
 export type AuthUser = {
   id?: string;
-  email?: string;
-  firstName?: string;
-  lastName?: string;
-  bio?: string;
-  role?: string;
+  name: string;
+  avatar: string;
+  token: string;
 };
 export const storage = {
   getUser: () => JSON.parse(window.localStorage.getItem(`${USER_INFO_ID}`) as string),

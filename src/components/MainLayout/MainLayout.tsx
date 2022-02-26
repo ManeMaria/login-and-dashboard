@@ -12,12 +12,12 @@ export function MainLayout() {
         <MenuSideBar />
         <Box w="100%" h="10%" bgGradient="linear(to-tr, green.100, green.200)" />
         <Box
-          w={['calc(100% - 230px)']}
+          w={['calc(100% - 80px)', 'calc(100% - 230px)']}
           h="calc(100vh - 10px)"
           bg="white.200"
           pos="absolute"
           top="10px"
-          left="230px"
+          left={['80px', '230px']}
           borderTopLeftRadius="5px"
           borderTopRightRadius="5px"
           p="0px 10px 10px 10px"
