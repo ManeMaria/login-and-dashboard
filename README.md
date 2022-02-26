@@ -6,7 +6,7 @@
 
 ## Stack utilizada
 
-**Front-end:** React, Chakra UI, Typescript
+**Front-end:** React, Chakra UI, Typescript, ApexChartJs
 
 ## Instalação
 
