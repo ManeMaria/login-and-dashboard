@@ -8,9 +8,6 @@
 
 **Front-end:** React, Chakra UI, Typescript
 
-**Back-end:** Node, Express
-
-
 ## Instalação
 
 Instale my-project com yarn
